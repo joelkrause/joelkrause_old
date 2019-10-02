@@ -36,6 +36,9 @@ export const pageQuery = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             content
+            acf {
+                post_icon
+            }
         }
         site {
             siteMetadata {

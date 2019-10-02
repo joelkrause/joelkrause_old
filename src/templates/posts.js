@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import heroSVG from '../images/herobg.svg'
 import SEO from "../components/seo"
+import { Link } from "gatsby"
 
 class PostsTemplate extends Component {
     render() {

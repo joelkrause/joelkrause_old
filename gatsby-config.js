@@ -34,7 +34,7 @@ module.exports = {
         baseUrl: "wp-gatsby-source.jkrs.me",
         protocol: "https",
         hostingWPCOM: false,
-        useACF: false,
+        useACF: true,
         verboseOutput: true
       }
     },
