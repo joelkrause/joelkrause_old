@@ -36,22 +36,13 @@
     }
 
     &-nav {
+        display: flex;
+        justify-content: flex-end;
 
-        ul,
-        li {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+        a {
 
-        ul {
-            display: flex;
-            justify-content: flex-end;
-
-            li {
-                &:not(:last-of-type) {
-                    margin-right: 2rem;
-                }
+            &:not(:last-of-type) {
+                margin-right: 2rem;
             }
         }
     }

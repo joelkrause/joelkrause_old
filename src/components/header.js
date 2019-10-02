@@ -7,7 +7,7 @@ const Header = ({ siteTitle }) => (
     <div className="site__header-logo">
       <Link to="/">Joel Krause.</Link>
     </div>
-    <nav class="site__header-nav">
+    <nav className="site__header-nav">
       <Link to="/">Home</Link>
       <Link to="/posts">Posts</Link>
     </nav>

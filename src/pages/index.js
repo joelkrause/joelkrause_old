@@ -1,21 +1,50 @@
+
 import React from "react"
+import { graphql } from "gatsby"
 import { Link } from "gatsby"
 
+import heroSVG from '../images/herobg.svg'
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export default ({ data }) => {
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <div className="page__hero">
+      <img src={heroSVG} />
+      <div className="wrapper">
+      <h1>Hey, I'm Joel</h1>
+      <p>I’m a passionate frontend web developer from Melbourne, Australia – currently working at Studio Chriate.</p>
+      </div>
+      </div>
+      <div className="wrapper">
+      <h4>Posts</h4>
+      
+      {data.allWordpressPost.edges.map(({ node }) => (
+        <div className="post__card">
+          <Link to={'posts/' + node.slug}>
+            <div className="post__card-title">{node.title}</div>
+            <div className="post__card-date">{node.date}</div>
+          </Link>
+        </div>
+      ))}
+      </div>
+    </Layout>
+  )
+}
 
-export default IndexPage
+export const pageQuery = graphql`
+  query {
+    allWordpressPost(sort: { fields: [date] }) {
+      edges {
+        node {
+          title
+          date(formatString: "MMMM DD, YYYY")
+          excerpt
+          slug
+        }
+      }
+    }
+  }
+`

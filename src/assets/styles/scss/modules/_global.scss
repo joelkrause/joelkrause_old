@@ -7,6 +7,9 @@ html {
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     margin: 0;
     padding: 0;
+}
+
+body {
     background: var(--mainColor);
     color: var(--lightColor);
 }
@@ -49,11 +52,12 @@ pre {
         }
     }
 
-    >svg {
+    >img {
         position: absolute;
+        z-index: -1;
     }
 
-    .single-post & {
+    &.single__post {
         text-align: center;
 
         .post__icon {
