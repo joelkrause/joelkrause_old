@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Space';
+    src: url('../../fonts/SpaceGrotesk-Bold.woff2') format('woff2'),
+        url('../../fonts/SpaceGrotesk-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+// @import url('https://fonts.googleapis.com/css?family=Karma:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: var(--mainFont);
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.75rem;
+
+    @include breakpoint(up, lg) {
+        font-size: 1.215rem;
+    }
+}
+
+h1 {
+    margin: 0 0 2rem;
+    line-height: 1;
+
+    @include breakpoint(up, lg) {
+        font-size: 3rem;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--accentFont);
+    font-weight: 700;
+}
