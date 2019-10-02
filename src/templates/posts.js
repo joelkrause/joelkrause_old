@@ -12,20 +12,22 @@ class PostsTemplate extends Component {
         return(
             <Layout>
                 <SEO title="Posts"/>
-                <h1>Posts</h1>
-
-                {data.allWordpressPost.edges.map(({node}) => (
-                    <div key={node.slug} className={"post"} style={{ marginBottom: 50 }}>
-                        <Link to={'post/' + node.slug}>
-                            <h3>{node.title}</h3>
+                <div className="page__hero">
+      <img src={heroSVG} />
+      <div className="wrapper">
+      <h1>Posts</h1>
+      </div>
+      </div>
+                <div className="wrapper">
+                    {data.allWordpressPost.edges.map(({node}) => (
+                    <div key={node.slug} className="post__card">
+                        <Link to={'posts/' + node.slug}>
+                        <div className="post__card-title">{node.title}</div>
+                        <div className="post__card-date">{node.date}</div>
                         </Link>
-
-                        <div className={"post-content"} dangerouslySetInnerHTML={{__html: node.excerpt}} />
-
-                        {node.date}
                     </div>
-                ))}
-
+                    ))}
+                </div>
             </Layout>
         )
     }

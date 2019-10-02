@@ -18,9 +18,11 @@ export default ({ data }) => {
       <p>I’m a passionate frontend web developer from Melbourne, Australia – currently working at Studio Chriate.</p>
       </div>
       </div>
-      <div className="wrapper">
-      <h4>Posts</h4>
-      
+      <div className="wrapper posts__cards">
+        <header>
+        <h2>Featured Posts</h2>
+        <Link to="/posts" className="button">See All Posts</Link>
+        </header>
       {data.allWordpressPost.edges.map(({ node }) => (
         <div className="post__card">
           <Link to={'posts/' + node.slug}>

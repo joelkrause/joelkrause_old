@@ -1,6 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import TweenMax from "gsap/TweenMax";
+import TransitionLink from "gatsby-plugin-transition-link"
 
 const Header = ({ siteTitle }) => (
   <header className="site__header">
