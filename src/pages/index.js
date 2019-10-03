@@ -26,6 +26,7 @@ export default ({ data }) => {
       {data.allWordpressPost.edges.map(({ node }) => (
         <div className="post__card">
           <Link to={'posts/' + node.slug}>
+            <div className="post__card-icon"></div>
             <div className="post__card-title">{node.title}</div>
             <div className="post__card-date">{node.date}</div>
           </Link>

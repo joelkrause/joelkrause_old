@@ -1,46 +1,27 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-import Layout from "../components/layout"
-import heroSVG from '../images/herobg.svg'
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/layout.js"
 import SEO from "../components/seo"
+import heroSVG from '../images/herobg.svg'
 
-
-class PageTemplate extends Component {
-    render() {
-        const siteMetadata = this.props.data.site.siteMetadata
-        const currentPage = this.props.data.wordpressPage
-
-        console.log(currentPage)
-
-        return (
-            <Layout>
-                <SEO title={{ __html: currentPage.title }} />
-                <h1 dangerouslySetInnerHTML={{__html: currentPage.title}}/>
-                <div dangerouslySetInnerHTML={{__html: currentPage.content}}/>
-
-                <p dangerouslySetInnerHTML={{__html: currentPage.date}} />
-                <p dangerouslySetInnerHTML={{__html: currentPage.slug}} />
-            </Layout>
-        )
-    }
-}
-
+const PageTemplate = ({ data }) => (
+  <Layout>
+    <SEO
+      title={data.wordpressPage.title}
+      description={data.wordpressPage.excerpt}
+    />
+    <h1>{data.wordpressPage.title}</h1>
+    <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
+  </Layout>
+)
 export default PageTemplate
 
-export const pageQuery = graphql`
-    query currentPageQuery($id: String!) {
-        wordpressPage(id: { eq: $id }) {
-            title
-            content
-            slug
-            id
-            date(formatString: "MMMM DD, YYYY")
-        }
-        site {
-            id
-            siteMetadata {
-                title
-            }
-        }
+export const query = graphql`
+  query($id: Int!) {
+    wordpressPage(wordpress_id: { eq: $id }) {
+      title
+      excerpt
+      content
     }
+  }
 `
